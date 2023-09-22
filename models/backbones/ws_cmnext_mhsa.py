@@ -1,3 +1,7 @@
+"""
+Created by Kostas Triaridis (@kostino)
+in August 2023 @ ITI-CERTH
+"""
 import torch
 from torch import nn, Tensor
 from torch.nn import functional as F

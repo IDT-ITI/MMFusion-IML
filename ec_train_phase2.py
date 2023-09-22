@@ -1,3 +1,7 @@
+"""
+Created by Kostas Triaridis (@kostino)
+in August 2023 @ ITI-CERTH
+"""
 import os
 import argparse
 import numpy as np
