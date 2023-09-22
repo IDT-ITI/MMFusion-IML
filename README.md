@@ -5,8 +5,6 @@ Official implementation of the MMM 2024 paper : "Exploring Multi-Modal Fusion fo
 
 ## Datasets
 
-
-### Data folder structure
 Prepare all train datasets:
 - [Casiav2](https://github.com/namtpham/casia2groundtruth)
 - [tampCOCO](https://github.com/mjkwon2021/CAT-Net#1-downloading-tampcoco--compraise)
@@ -22,6 +20,8 @@ Prepare all test datasets:
 - [DSO-1](https://recodbr.wordpress.com/code-n-data/#dso1_dsi1)
 
 The corel dataset is needed to create the Casiav1+ dataset.
+
+### Data folder structure
 
 Then all datasets are structured as:
 ```
