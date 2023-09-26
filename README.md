@@ -97,7 +97,7 @@ If you use some resources provided by this repo, please cite this paper.
 
 * Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization
 ````
-@inproceedings{
+@inproceedings{triaridis2023exploring
     title={Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization},
     author={Triaridis, Konstantinos and Mezaris, Vasileios},
     year={2023}
