@@ -5,13 +5,13 @@ Official implementation of the MMM 2024 paper : "Exploring Multi-Modal Fusion fo
 
 ## Datasets
 
-Prepare all train datasets:
+Download train datasets:
 - [Casiav2](https://github.com/namtpham/casia2groundtruth)
 - [tampCOCO](https://github.com/mjkwon2021/CAT-Net#1-downloading-tampcoco--compraise)
 - [IMD2020](http://staff.utia.cas.cz/novozada/db/)
 - [FantasticReality](http://zefirus.org/articles/9f78c1e9-8652-4392-9199-df1b6a6c1a3d/)
 
-Prepare all test datasets:
+Download test datasets:
 - [Casiav1](https://github.com/namtpham/casia1groundtruth)
 - [corel](https://www.kaggle.com/datasets/elkamel/corel-images)
 - [CocoGlide](https://github.com/grip-unina/TruFor#cocoglide-dataset)
@@ -23,7 +23,7 @@ The corel dataset is needed to create the Casiav1+ dataset.
 
 ### Data folder structure
 
-Then all datasets are structured as:
+Then all datasets are structured as follows:
 ```
 data/
 ├── Casiav1
@@ -69,14 +69,22 @@ data/
 ```
 
 ## Training
-Before training, you need to download the pretrained networks following the instructions [here](pretrained/README.md) and place them in the <root>/pretrained directory.
-
+### Preparation
+Before training, you need to download the pretrained networks following the instructions [here](pretrained/README.md) and place them in the <root>/pretrained directory as:
+```
+pretrained/
+├── segformer
+├── noiseprint
+└── modal_extractor
+```
+### Localization Training
 After that you can run an example training by:
 
 ```bash
 example_train.sh
 ```
 You can change the training parameters by creating a new experiment yaml file in the <root>/experiments directory.
+### Detection Training
 
 ## Evaluation
 You can download our pretrained networks following the instructions [here](ckpt/README.md) and place them in the <root>/ckpt directory.
