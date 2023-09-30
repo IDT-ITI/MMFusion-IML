@@ -23,7 +23,7 @@ The corel dataset is needed to create the Casiav1+ dataset.
 
 ### Data folder structure
 
-Then all datasets are structured as follows:
+Then you should place the datasets in the data directory as such:
 ```
 data/
 ├── Casiav1
