@@ -84,7 +84,35 @@ After that you can run an example training by:
 example_train.sh
 ```
 You can change the training parameters by creating a new experiment yaml file in the <root>/experiments directory.
+The checkpoint is saved as:
+```
+ckpt/
+└── <model_name>
+    ├── best_val_loss.pth
+    └── final.pth
+```
+The model_name parameter is set in the experiment yaml file as:
+```yaml
+MODEL:
+  NAME: <model_name>
+```
 ### Detection Training
+To run detection training (phase 2) you need a localization checkpoint (produced from phase 1 training) placed in the chekpoints folder. 
+If you want to use one of our localization checkpoints you can download them following the instructions [here](ckpt/README.md).
+
+The experiment file for phase 2 training should be set for detection as:
+```yaml
+MODEL:
+  TRAIN_PHASE: 'detection'
+```
+Then you can train a model for detection as follows:
+```bash
+source data.sh
+exp='./experiments/ec_example_phase2.yaml'
+ckpt_loc='./ckpt/<path_to_localization_ckpt>'
+
+$pint ec_train_phase2.py --ckpt $ckpt_loc --exp $exp
+```
 
 ## Evaluation
 You can download our pretrained networks following the instructions [here](ckpt/README.md) and place them in the <root>/ckpt directory.
