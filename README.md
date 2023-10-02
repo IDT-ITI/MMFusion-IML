@@ -105,13 +105,19 @@ The experiment file for phase 2 training should be set for detection as:
 MODEL:
   TRAIN_PHASE: 'detection'
 ```
-Then you can train a model for detection as follows:
+Then you can train a model for detection and evaluate on our testing datasets as follows:
 ```bash
 source data.sh
 exp='./experiments/ec_example_phase2.yaml'
 ckpt_loc='./ckpt/<path_to_localization_ckpt>'
-
+ckpt='./ckpt/<model_name>/best_val_loss.pth'
 $pint ec_train_phase2.py --ckpt $ckpt_loc --exp $exp
+
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $columbia_manip --auth $columbia_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $cover_manip --auth $cover_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $dso1_manip --auth $dso1_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $cocoglide_manip --auth $cocoglide_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $casiav1_manip --auth $casiav1_auth
 ```
 
 ## Evaluation
