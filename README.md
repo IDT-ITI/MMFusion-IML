@@ -2,6 +2,7 @@
 
 Official implementation of the MMM 2024 paper : "Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization"
 
+![Architecture](figs/architecture.png)
 
 ## Datasets
 
@@ -20,6 +21,27 @@ Download test datasets:
 - [DSO-1](https://recodbr.wordpress.com/code-n-data/#dso1_dsi1)
 
 The corel dataset is needed to create the Casiav1+ dataset.
+
+The data lists for the test sets are split into manipulated and authentic
+images and are present in the files named:
+```bash
+./data/IDT-<DATASET_NAME>-manip.txt
+./data/IDT-<DATASET_NAME>-auth.txt
+```
+This is intended for ease of use when evaluating for localization, where
+you only use manipulated images (localization F1 for authentic images is 
+always 0!).
+
+The data lists for training are split into train and val files for ease of
+use and reproducibility. We use the train-validation split proposed by 
+Kwon et al. in [CAT-Net](https://github.com/mjkwon2021/CAT-Net).
+Train data lists are in files named:
+```bash
+./data/CAT-Net_splits/train/<DATASET_NAME>.txt
+./data/CAT-Net_splits/val/<DATASET_NAME>.txt
+```
+For our experiments we validated on a validation split of our training 
+datasets so the testing datasets remained completely unseen until evaluation.
 
 ### Data folder structure
 
@@ -77,6 +99,42 @@ pretrained/
 ├── noiseprint
 └── modal_extractor
 ```
+
+### Experiment Settings
+Before training, you need to create an experiment file and place it in the
+'experiments' folder. This yaml file contains parameters for training. To train
+a model with our training settings you can use the ec_example.yaml file provided.
+You can however change training parameters as follows:
+- You can change the learning parameters
+if needed or train for more epochs:
+```yaml
+WORKERS: 16
+ACCUMULATE_ITERS: 6
+BATCH_SIZE: 4
+WARMUP_EPOCHS: 2
+EPOCHS: 100
+```
+- You can change the optimizer or scheduler parameters:
+```yaml
+LEARNING_RATE: 0.005
+SGD_MOMENTUM: 0.9
+WD: 0.0005
+POLY_POWER: 0.9
+```
+
+- You can change the train or validation datasets:
+```yaml
+DATASET:
+  TRAIN:
+    - 'data-list-1'
+    - ...
+    - 'data-list-N'
+  VAL:
+    - 'val-data-list-1'
+    - ...
+    - 'val-data-list-N'
+```
+
 ### Localization Training
 After that you can run an example training by:
 
