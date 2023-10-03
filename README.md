@@ -122,11 +122,34 @@ $pint test_detection.py --exp $exp --ckpt $ckpt --manip $casiav1_manip --auth $c
 
 ## Evaluation
 You can download our pretrained networks following the instructions [here](ckpt/README.md) and place them in the <root>/ckpt directory.
-Then you can evaluate a model by using:
+Then you can evaluate a model for localization by using:
 ```bash
 example_test.sh
 ```
-and changing the relevant parameters.
+and changing the relevant parameters, or more analytically:
+```bash
+source data.sh
+exp='./experiments/ec_example.yaml'
+ckpt='./ckpt/<model_name>/best_val_loss.pth'
+
+$pint test_localization.py --exp $exp --ckpt $ckpt --manip $columbia_manip
+$pint test_localization.py --exp $exp --ckpt $ckpt --manip $cover_manip
+$pint test_localization.py --exp $exp --ckpt $ckpt --manip $dso1_manip
+$pint test_localization.py --exp $exp --ckpt $ckpt --manip $cocoglide_manip
+$pint test_localization.py --exp $exp --ckpt $ckpt --manip $casiav1_manip
+```
+In the same way you can evaluate a model for detection:
+```bash
+source data.sh
+exp='./experiments/ec_example_phase2.yaml'
+ckpt='./ckpt/<model_name>/best_val_loss.pth'
+
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $columbia_manip --auth $columbia_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $cover_manip --auth $cover_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $dso1_manip --auth $dso1_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $cocoglide_manip --auth $cocoglide_auth
+$pint test_detection.py --exp $exp --ckpt $ckpt --manip $casiav1_manip --auth $casiav1_auth
+```
 
 ## Acknowledgements
 Thanks to the public repositories:
