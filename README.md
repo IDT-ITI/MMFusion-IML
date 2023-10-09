@@ -210,6 +210,8 @@ $pint test_detection.py --exp $exp --ckpt $ckpt --manip $casiav1_manip --auth $c
 ```
 
 ## Acknowledgements
+This work was supported by the EU's Horizon 2020 research and innovation programme under grant agreement H2020-101021866 CRiTERIA.
+
 Thanks to the public repositories:
 - [DELIVER](https://github.com/jamycheung/DELIVER)
 - [TruFor](https://github.com/grip-unina/TruFor)
