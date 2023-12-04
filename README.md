@@ -233,8 +233,8 @@ If you find our method useful in your work or you use some materials provided in
 @inproceedings{triaridis2023exploring
     title={Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization},
     author={Triaridis, Konstantinos and Mezaris, Vasileios},
-year={2024},
-month={Jan.-Feb.},
-booktitle={Proc. 30th Int. Conf. on MultiMedia Modeling (MMM 2024)}
+    year={2024},
+    month={Jan.-Feb.},
+    booktitle={Proc. 30th Int. Conf. on MultiMedia Modeling (MMM 2024)}
 }
 ````
