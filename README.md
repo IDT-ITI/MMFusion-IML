@@ -226,7 +226,7 @@ Thanks to the public repositories:
 - [CAT-Net](https://github.com/mjkwon2021/CAT-Net)
 
 ## Citation
-If you use some resources provided by this repo, please cite this paper.
+If you find our method useful in your work or you use some materials provided in this repo, please cite the following publication where our method and materials were presented: 
 
 * Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization
 ````
