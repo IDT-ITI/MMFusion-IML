@@ -230,7 +230,7 @@ If you find our method useful in your work or you use some materials provided in
 
 * Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization
 ````
-@inproceedings{triaridis2023exploring
+@inproceedings{triaridis2023exploring,
     title={Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization},
     author={Triaridis, Konstantinos and Mezaris, Vasileios},
     year={2024},
