@@ -1,6 +1,6 @@
 ## Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization (MMM 2024)
 
-Official implementation (code and trained models) of the MMM 2024 paper: "Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization" (Arxiv ("submitted manuscript") version accessible at: http://arxiv.org/abs/2312.01790)
+Official implementation (code and trained models) of the MMM 2024 paper: "Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization" (Arxiv ("submitted manuscript"): http://arxiv.org/abs/2312.01790)
 
 ![Architecture](figs/architecture.png)
 
