@@ -228,7 +228,6 @@ Thanks to the public repositories:
 ## Citation
 If you find our method useful in your work or you use some materials provided in this repo, please cite the following publication where our method and materials were presented: 
 
-* Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization
 ````
 @inproceedings{triaridis2024exploring,
     title={Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization},
@@ -238,3 +237,5 @@ If you find our method useful in your work or you use some materials provided in
     booktitle={Proc. 30th Int. Conf. on MultiMedia Modeling (MMM 2024)}
 }
 ````
+
+Arxiv ("submitted manuscript") version accessible at: http://arxiv.org/abs/2312.01790
