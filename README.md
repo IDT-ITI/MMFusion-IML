@@ -5,10 +5,16 @@
 </div>
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-localization-on-casia-v1)](https://paperswithcode.com/sota/image-manipulation-localization-on-casia-v1?p=exploring-multi-modal-fusion-for-image)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-detection-on-casia-v1)](https://paperswithcode.com/sota/image-manipulation-detection-on-casia-v1?p=exploring-multi-modal-fusion-for-image)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-localization-on-cocoglide)](https://paperswithcode.com/sota/image-manipulation-localization-on-cocoglide?p=exploring-multi-modal-fusion-for-image)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-detection-on-cocoglide)](https://paperswithcode.com/sota/image-manipulation-detection-on-cocoglide?p=exploring-multi-modal-fusion-for-image)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-localization-on-columbia)](https://paperswithcode.com/sota/image-manipulation-localization-on-columbia?p=exploring-multi-modal-fusion-for-image)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-detection-on-columbia)](https://paperswithcode.com/sota/image-manipulation-detection-on-columbia?p=exploring-multi-modal-fusion-for-image)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-localization-on-coverage)](https://paperswithcode.com/sota/image-manipulation-localization-on-coverage?p=exploring-multi-modal-fusion-for-image)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-detection-on-coverage)](https://paperswithcode.com/sota/image-manipulation-detection-on-coverage?p=exploring-multi-modal-fusion-for-image)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-localization-on-dso-1)](https://paperswithcode.com/sota/image-manipulation-localization-on-dso-1?p=exploring-multi-modal-fusion-for-image)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-multi-modal-fusion-for-image/image-manipulation-detection-on-dso-1)](https://paperswithcode.com/sota/image-manipulation-detection-on-dso-1?p=exploring-multi-modal-fusion-for-image)
+
 
 Official implementation (code and trained models) of the MMM 2024 paper: "Exploring Multi-Modal Fusion for Image Manipulation Detection and Localization" (Arxiv ("submitted manuscript"): http://arxiv.org/abs/2312.01790)
 
