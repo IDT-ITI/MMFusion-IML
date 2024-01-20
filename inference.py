@@ -1,33 +1,30 @@
 import argparse
 import numpy as np
-from tqdm import tqdm
-from torch.utils.data import DataLoader, ConcatDataset
-import logging
+from torch.utils.data import DataLoader
 import torch
 import torchvision.transforms.functional as TF
-
+import logging
 from data.datasets import ManipulationDataset
-from common.metrics import computeDetectionMetrics
 from models.cmnext_conf import CMNeXtWithConf
 from models.modal_extract import ModalitiesExtractor
 from configs.cmnext_init_cfg import _C as config, update_config
 
-parser = argparse.ArgumentParser(description='Test Detection')
+parser = argparse.ArgumentParser(description='Infer')
 parser.add_argument('-gpu', '--gpu', type=int, default=0, help='device, use -1 for cpu')
 parser.add_argument('-log', '--log', type=str, default='INFO', help='logging level')
-parser.add_argument('-exp', '--exp', type=str, default=None, help='Yaml experiment file')
-parser.add_argument('-ckpt', '--ckpt', type=str, default=None, help='Checkpoint')
-parser.add_argument('-manip', '--manip', type=str, default=None, help='Manip data file')
-parser.add_argument('-auth', '--auth', type=str, default=None, help='Auth data file')
+parser.add_argument('-exp', '--exp', type=str, default='experiments/ec_example_phase2.yaml', help='Yaml experiment file')
+parser.add_argument('-ckpt', '--ckpt', type=str, default='ckpt/early_fusion_detection.pth', help='Checkpoint')
+parser.add_argument('-path', '--path', type=str, default='example.png', help='Image path')
 parser.add_argument('opts', help="other options", default=None, nargs=argparse.REMAINDER)
 
 args = parser.parse_args()
 
 config = update_config(config, args.exp)
 
-gpu = args.gpu
 loglvl = getattr(logging, args.log.upper())
 logging.basicConfig(level=loglvl)
+
+gpu = args.gpu
 
 device = 'cuda:%d' % gpu if gpu >= 0 else 'cpu'
 np.set_printoptions(formatter={'float': '{: 7.3f}'.format})
@@ -55,27 +52,27 @@ model = model.to(device)
 modal_extractor.eval()
 model.eval()
 
-manip = ManipulationDataset(args.manip,
-                            config.DATASET.IMG_SIZE,
-                            train=False)
-auth = ManipulationDataset(args.auth,
-                           config.DATASET.IMG_SIZE,
-                           train=False)
-val = ConcatDataset([manip, auth])
+target = args.path.split(".")[-2] + "_mask.png"
+
+with open('tmp_inf.txt', 'w') as f:
+    f.write(args.path + ' None 0\n')
+
+val = ManipulationDataset('tmp_inf.txt',
+                          config.DATASET.IMG_SIZE,
+                          train=False)
 val_loader = DataLoader(val,
                         batch_size=1,
                         shuffle=False,
                         num_workers=config.WORKERS,
                         pin_memory=True)
 
-scores = []
-labels = []
-pbar = tqdm(val_loader)
-for step, (images, _, masks, lab) in enumerate(pbar):
+f1 = []
+f1th = []
+for step, (images, _, masks, lab) in enumerate(val_loader):
     with torch.no_grad():
         images = images.to(device, non_blocking=True)
         masks = masks.squeeze(1).to(device, non_blocking=True)
-        lab = lab.to(device, non_blocking=True)
+
         modals = modal_extractor(images)
 
         images_norm = TF.normalize(images, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
@@ -83,8 +80,10 @@ for step, (images, _, masks, lab) in enumerate(pbar):
 
         anomaly, confidence, detection = model(inp)
 
-        scores.append(detection.squeeze().cpu().item())
-        labels.append(lab.squeeze().cpu().item())
+        gt = masks.squeeze().cpu().numpy()
+        map = torch.nn.functional.softmax(anomaly, dim=1)[:, 1, :, :].squeeze().cpu().numpy()
+        det = detection.item()
 
-auc, baCC = computeDetectionMetrics(scores, labels)
-print("AUC: {}\nbACC: {}".format(auc, baCC))
+print(f"Ran on {args.path}")
+print(f"Detection score: {det}")
+print(f"Localization map saved in {target}")

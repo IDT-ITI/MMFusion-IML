@@ -12,7 +12,7 @@ from models.cmnext_conf import CMNeXtWithConf
 from models.modal_extract import ModalitiesExtractor
 from configs.cmnext_init_cfg import _C as config, update_config
 
-parser = argparse.ArgumentParser(description='Test TruFor')
+parser = argparse.ArgumentParser(description='Test Localization')
 parser.add_argument('-gpu', '--gpu', type=int, default=0, help='device, use -1 for cpu')
 parser.add_argument('-log', '--log', type=str, default='INFO', help='logging level')
 parser.add_argument('-exp', '--exp', type=str, default=None, help='Yaml experiment file')
