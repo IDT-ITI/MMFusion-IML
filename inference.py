@@ -4,6 +4,7 @@ from torch.utils.data import DataLoader
 import torch
 import torchvision.transforms.functional as TF
 import logging
+import matplotlib.pyplot as plt
 from data.datasets import ManipulationDataset
 from models.cmnext_conf import CMNeXtWithConf
 from models.modal_extract import ModalitiesExtractor
@@ -83,6 +84,8 @@ for step, (images, _, masks, lab) in enumerate(val_loader):
         gt = masks.squeeze().cpu().numpy()
         map = torch.nn.functional.softmax(anomaly, dim=1)[:, 1, :, :].squeeze().cpu().numpy()
         det = detection.item()
+
+        plt.imsave(target, map, cmap='RdBu_r', vmin=0, vmax=1)
 
 print(f"Ran on {args.path}")
 print(f"Detection score: {det}")
