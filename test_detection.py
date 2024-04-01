@@ -83,6 +83,7 @@ for step, (images, _, masks, lab) in enumerate(pbar):
 
         anomaly, confidence, detection = model(inp)
 
+        detection = torch.sigmoid(detection)
         scores.append(detection.squeeze().cpu().item())
         labels.append(lab.squeeze().cpu().item())
 
